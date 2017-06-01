@@ -14,9 +14,6 @@ after_success:
 script:
   - ./gradlew assemble
 env:
-branches:
-  only:
-    - master
 notifications:
   email: false
 sudo: false
@@ -30,5 +27,6 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+    all_branches: true
   overwrite: true
 after_deploy: "echo 'end'"
