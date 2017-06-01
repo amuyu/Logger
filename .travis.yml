@@ -29,4 +29,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: amuyu/Logger
-    tags: false
+    tags: true
