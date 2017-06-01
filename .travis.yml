@@ -29,6 +29,6 @@ deploy:
     - "logger-sample/build/outputs/apk/logger-sample-debug.apk"
   on:
     repo: amuyu/Logger
-    tags: true
+    tags: false
   overwrite: true
 after_deploy: "echo 'end'"
