@@ -10,7 +10,7 @@ android:
 before_install:
   - chmod +x gradlew
 after_success:
-  - ls -al
+  - ls -al logger-sample/build/outputs/apk/
 script:
   - ./gradlew assemble
 env:
@@ -27,8 +27,8 @@ deploy:
     secure: "AEKodcfMX7PQ1hy7+RZL/xaBjaqlUuVFLBoHbmxy0IMWOyw35TJZXUUK+/4PEfh2gQZn6nMV897n+v0XxnrubIEt0tbQhRdwDfFsxsw/P+S1bYoTvzySbciyfgKnokUejbmFIlZDx6+exY2iDitrEw5fok7QNp0Dmda6x5/Y0AG6eeOBD1VRUxcC8fB1nakm8Ub4F8iM7fhCcgTpTcXM+BeGiIqQUjTN1JfWw11uT4MI+d5QD7nIeChGfYwMkJIht7ciBDOjqm1MSCUByNZLhEqo7wsRg+VPipjl0+v3ZgCvuaHDfxwaTZp5joWirLpHhxiOP9PBOBoWlv7Wmb/DeQ0AgQb/cLir4qrprKT0FDllKPhzYUY3KvNzDAqkZx7MOl8ui7F8P+Myf7/Z+l6qQwVTZewnv/pwK9PAlvYWR+MWzAx3HVxV0wOoeAzTlrzyZfFi2HxsaWurUUi3mMad/7aXsZxCArh+uX3p7CV0DU6J2z2/LW42VwbbxkUtNqt7Z6JOCvQfrj5q6DTZYOtzlgI9x08q94VqFLidQoGH8kJ/6FX1y/HBb0CU5DJVhx7iMK8iRuE+vqbo/2vVI/A236xKumCJr4UeIHP+PWOuZIAFmbHC5MTO9P2wBWwriRinVr293zhwJXIcVGZ9lm5PGBrQ4FuvJ9pHGbZqTRpxlb8="
   file:
     - "logger-sample/build/outputs/apk/logger-sample-debug.apk"
+  skip_cleanup: true
   on:
-    repo: amuyu/Logger
     tags: false
   overwrite: true
 after_deploy: "echo 'end'"
