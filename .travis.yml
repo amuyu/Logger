@@ -20,4 +20,10 @@ branches:
 notifications:
   email: false
 sudo: false
-
+deploy:
+  provider: releases
+  api_key: 009e760502e923451e32fec28717e3f1c205fcc5
+  file: logger-sample/build/outputs/apk/logger-sample-debug.apk
+  skip_cleanup: true
+  on:
+    tags: true
