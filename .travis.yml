@@ -29,6 +29,6 @@ deploy:
     - "logger-sample/build/outputs/apk/logger-sample-debug.apk"
   skip_cleanup: true
   on:
-    tags: false
+    tags: true
   overwrite: true
 after_deploy: "echo 'end'"
