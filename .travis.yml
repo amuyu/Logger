@@ -11,9 +11,9 @@ before_install:
   - chmod +x gradlew
   - chmod +x .buildscript/maven_push.sh
 after_success:
-  - echo $bintrayKey
+  - ls -al
 script:
-  - .buildscript/maven_push.sh $bintrayUser $bintrayKey
+  - ./gradlew assemble
 env:
 notifications:
   email: false
@@ -29,3 +29,5 @@ deploy:
       tags: true
       all_branches: true
     overwrite: true
+after_deploy:
+  - .buildscript/maven_push.sh $bintrayUser $bintrayKey
