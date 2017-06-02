@@ -39,35 +39,17 @@ android {
         }
     }
 
-    libraryVariants.all { variant ->
-        variant.outputs.each { output ->
-            def outputFile = output.outputFile
-            if (outputFile != null && outputFile.name.endsWith('.aar')) {
-                def fileName = "${archivesBaseName}-${VERSION_NAME}.aar"
-                output.outputFile = new File(outputFile.parent, fileName)
-            }
-        }
-    }
+//    libraryVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+//                def fileName = "${archivesBaseName}-${VERSION_NAME}.aar"
+//                output.outputFile = new File(outputFile.parent, fileName)
+//            }
+//        }
+//    }
 }
 
 dependencies {
     testCompile 'junit:junit:4.12'
-}
-
-// JCenter publish
-task sourcesJar(type: Jar, dependsOn: assemble) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-// Optional docs
-task javadoc(type: Javadoc, dependsOn: sourcesJar) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-// Optional javadoc
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
 }
