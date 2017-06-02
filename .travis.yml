@@ -12,7 +12,7 @@ before_install:
 after_success:
   - echo $bintrayKey
 script:
-  - ./buildscript/maven_push.sh $bintrayUser $bintrayKey
+  - .buildscript/maven_push.sh $bintrayUser $bintrayKey
 env:
 notifications:
   email: false
