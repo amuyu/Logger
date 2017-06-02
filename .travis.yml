@@ -9,6 +9,7 @@ android:
     - android-25
 before_install:
   - chmod +x gradlew
+  - chmod +x .buildscript/maven_push.sh
 after_success:
   - echo $bintrayKey
 script:
