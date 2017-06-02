@@ -41,8 +41,9 @@ public class LoggerTest {
         Logger.addLogPrinter(new DefaultLogPrinter(context));
         String message = "Hello, world!";
         Logger.d(message);
+        String threadName = Thread.currentThread().getName();
         assertLog()
-                .hasDebugMessage("LoggerTest#main", "debugTagAndMessage(43) "+message);
+                .hasDebugMessage("LoggerTest#"+threadName, "debugTagAndMessage(43) "+message);
     }
 
     @Test public void dontAddLogPrinter() {
@@ -70,7 +71,8 @@ public class LoggerTest {
                 while((line = reader.readLine()) != null) {
                     builder.append(line);
                 }
-                String expected = "LoggerTest#main: writeToFile(58) Hello, world!";
+                String threadName = Thread.currentThread().getName();
+                String expected = "LoggerTest#"+threadName+": writeToFile(59) Hello, world!";
                 String message = builder.toString();
                 message = message.substring(message.length()-expected.length(), message.length());
                 assertThat(message).isEqualTo(expected);
@@ -107,7 +109,8 @@ public class LoggerTest {
                 while((line = reader.readLine()) != null) {
                     builder.append(line);
                 }
-                String expected = "LoggerTest#main: writeToCrashFile(96) Hello, world!";
+                String threadName = Thread.currentThread().getName();
+                String expected = "LoggerTest#"+threadName+": writeToCrashFile(98) Hello, world!";
                 String message = builder.toString();
                 message = message.substring(message.length()-expected.length(), message.length());
                 assertThat(message).isEqualTo(expected);
