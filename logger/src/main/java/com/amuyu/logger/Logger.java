@@ -18,6 +18,15 @@ public final class Logger {
         logAdapter.add(logPrinter);
     }
 
+    public static void removeLogPrint(AbstractLogPrinter logPrinter) {
+        if (logPrinter == null) throw  new NullPointerException("logPrinter is null");
+        logAdapter.remove(logPrinter);
+    }
+
+    public static void clearLogPrint() {
+        logAdapter.clear();
+    }
+
 
     public static void v(String msg, Object...args) {
         logAdapter.v(msg, args);
