@@ -31,6 +31,8 @@ android {
         versionCode 2
         versionName VERSION_NAME
         archivesBaseName = "logger"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -51,5 +53,7 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testCompile deps.junit
+    testCompile deps.robolectric
+    testCompile deps.festassert
 }
