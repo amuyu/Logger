@@ -12,7 +12,7 @@ before_install:
 after_success:
   - echo $bintrayKey
 script:
-  - ./gradlew assemble
+  - ./buildscript/maven_push.sh $bintrayUser $bintrayKey
 env:
 notifications:
   email: false
