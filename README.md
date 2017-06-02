@@ -30,7 +30,7 @@ Logger.d("log message");
 3. Log level
 android.Log에서 사용하는 Log Level과 동일합니다
 ```java
-Logger.v() Logger.d() Logger.e() Logger.i()
+Logger.v() Logger.d() Logger.e() Logger.i() ...
 ```
 
 # Result
@@ -47,14 +47,14 @@ LogLevel/클래스명/Thread: 메소드명(라인) 메시지
 ```
 
 # 파일 저장
-파일로 저장하고 싶을 때는 Logger 시작 명령에 'writeFileLog(true)'를 추가합니다
+파일로 저장하고 싶을 때는 Logger 시작 명령에 `writeFileLog(true)`를 추가합니다
 ```java
 Logger.addLogPrinter(new DefaultLogPrinter(this)
                         .writeFileLog(true));
 ```
-파일은 '$android_dir/data/[패키지명]/cache' 에 저장됩니다
+파일은 `$android_dir/data/[패키지명]/cache` 에 저장됩니다
 ex) /storage/extSdCard/Android/data/com.amuyu.logger.sample/cache
 
 
 # Sample
-더 자세한 사용 방법 logger-sample 에서 보실 수 있습니다
+더 자세한 사용 방법 /logger-sample 에서 보실 수 있습니다
