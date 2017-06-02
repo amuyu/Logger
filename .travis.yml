@@ -10,7 +10,7 @@ android:
 before_install:
   - chmod +x gradlew
 after_success:
-  - ls -al logger-sample/build/outputs/apk/
+  - echo $bintrayKey
 script:
   - ./gradlew assemble
 env:
