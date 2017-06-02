@@ -9,7 +9,7 @@ Dependencies 추가
 compile 'com.amuyu:logger:1.0.0'
 ```
 # How to use
-1. Start Logger
+1.Start Logger  
 앱 시작 시, Logger를 생성하기 위해 다음을 호출합니다.
 ```java
 public class App extends Application {
@@ -21,13 +21,13 @@ public class App extends Application {
     }
 ```
 
-2. Log message
+2.Log message  
 Logger.d("") 메시지를 호출해서 메시지를 남깁니다
 ```java
 Logger.d("log message");
 ```
 
-3. Log level
+3.Log level  
 android.Log에서 사용하는 Log Level과 동일합니다
 ```java
 Logger.v() Logger.d() Logger.e() Logger.i() ...
