@@ -15,7 +15,7 @@ publish {
     repoName = 'maven'
     groupId = 'com.amuyu'
     artifactId = 'logger'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'Simple logger for Android'
     website = 'https://github.com/amuyu/Logger'
     issueTracker = "${website}/issues"
