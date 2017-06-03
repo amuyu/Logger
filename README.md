@@ -1,8 +1,8 @@
 [ ![Download](https://api.bintray.com/packages/amuyu/maven/logger/images/download.svg) ](https://bintray.com/amuyu/maven/logger/_latestVersion)
 # Logger
-안드로이드 로그 메시지를 사용할 때, 항상 TAG를 넣는게 불편하다
-TAG를 적어놓긴 햇지만 로그 메시지가 찍히는 위치가 헷갈린다
-이런 불편함들을 편하게 하는 로그 라이브러리 입니다
+안드로이드 로그 메시지를 사용할 때, 항상 TAG를 넣는게 불편하다  
+TAG를 적어놓긴 햇지만 로그 메시지가 찍히는 위치가 헷갈린다  
+이런 불편함들을 편하게 하는 로그 라이브러리 입니다  
 # Download
 Dependencies 추가
 ```
@@ -52,7 +52,7 @@ LogLevel/클래스명/Thread: 메소드명(라인) 메시지
 Logger.addLogPrinter(new DefaultLogPrinter(this)
                         .writeFileLog(true));
 ```
-파일은 `$android_dir/data/[패키지명]/cache` 에 저장됩니다
+파일은 `$android_dir/data/[패키지명]/cache` 에 저장됩니다  
 ex) /storage/extSdCard/Android/data/com.amuyu.logger.sample/cache
 
 
