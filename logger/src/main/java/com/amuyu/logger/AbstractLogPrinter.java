@@ -56,7 +56,7 @@ public abstract class AbstractLogPrinter {
         String tag = getTag(element);
 
         if (message != null && message.length() == 0) {
-            message = null;
+            message = "";
         }
         if (message == null) {
             if (t == null) {

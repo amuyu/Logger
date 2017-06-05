@@ -22,6 +22,7 @@ public class DemoActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.demo_activity);
     ButterKnife.bind(this);
+    Logger.d("");
     Logger.d("Activity Created");
     Logger.e("error test");
 
