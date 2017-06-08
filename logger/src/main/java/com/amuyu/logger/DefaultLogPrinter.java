@@ -23,7 +23,9 @@ public class DefaultLogPrinter extends AbstractLogPrinter {
             className = m.replaceAll("");
         }
         className = className.substring(className.lastIndexOf('.') + 1);
+        className = className.length() > MAX_TAG_CLASS_LENGTH ? className.substring(0, MAX_TAG_CLASS_LENGTH) : className;
         String threadName = Thread.currentThread().getName();
+        threadName = threadName.length() > MAX_TAG_THREAD_LEGTH ? threadName.substring(0, MAX_TAG_THREAD_LEGTH) : threadName;
         String tag = className + '#' + threadName;
         return tag.length() > MAX_TAG_LENGTH ? tag.substring(0, MAX_TAG_LENGTH) : tag;
     }
