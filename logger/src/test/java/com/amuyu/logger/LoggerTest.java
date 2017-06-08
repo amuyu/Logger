@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import static com.amuyu.logger.AbstractLogPrinter.MAX_TAG_THREAD_LEGTH;
 import static junit.framework.Assert.fail;
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -42,8 +43,9 @@ public class LoggerTest {
         String message = "Hello, world!";
         Logger.d(message);
         String threadName = Thread.currentThread().getName();
+        threadName = threadName.length() > MAX_TAG_THREAD_LEGTH ? threadName.substring(0, MAX_TAG_THREAD_LEGTH) : threadName;
         assertLog()
-                .hasDebugMessage("LoggerTest#"+threadName, "debugTagAndMessage(43) "+message);
+                .hasDebugMessage("LoggerTest#"+threadName, "debugTagAndMessage(44) "+message);
     }
 
     @Test public void dontAddLogPrinter() {
@@ -72,7 +74,8 @@ public class LoggerTest {
                     builder.append(line);
                 }
                 String threadName = Thread.currentThread().getName();
-                String expected = "LoggerTest#"+threadName+": writeToFile(59) Hello, world!";
+                threadName = threadName.length() > MAX_TAG_THREAD_LEGTH ? threadName.substring(0, MAX_TAG_THREAD_LEGTH) : threadName;
+                String expected = "LoggerTest#"+threadName+": writeToFile(61) Hello, world!";
                 String message = builder.toString();
                 message = message.substring(message.length()-expected.length(), message.length());
                 assertThat(message).isEqualTo(expected);
@@ -110,7 +113,8 @@ public class LoggerTest {
                     builder.append(line);
                 }
                 String threadName = Thread.currentThread().getName();
-                String expected = "LoggerTest#"+threadName+": writeToCrashFile(98) Hello, world!";
+                threadName = threadName.length() > MAX_TAG_THREAD_LEGTH ? threadName.substring(0, MAX_TAG_THREAD_LEGTH) : threadName;
+                String expected = "LoggerTest#"+threadName+": writeToCrashFile(101) Hello, world!";
                 String message = builder.toString();
                 message = message.substring(message.length()-expected.length(), message.length());
                 assertThat(message).isEqualTo(expected);
