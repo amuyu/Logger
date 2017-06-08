@@ -14,7 +14,7 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DemoLoggerTestActivity extends Activity {
+public class DemoActivity extends Activity {
 
   private boolean isRun = false;
 
