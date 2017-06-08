@@ -13,7 +13,7 @@ before_install:
 after_success:
   - ls -al
 script:
-  - ./gradlew clean assemble test
+  - ./gradlew clean assemble test --debug
 env:
 notifications:
   email: false
