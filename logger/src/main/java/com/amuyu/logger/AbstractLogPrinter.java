@@ -16,8 +16,6 @@ public abstract class AbstractLogPrinter {
 
     protected static final int MAX_LOG_LENGTH = 4000;
     protected static final int MAX_TAG_LENGTH = 23;
-    protected static final int MAX_TAG_THREAD_LEGTH = 6;
-    protected static final int MAX_TAG_CLASS_LENGTH = MAX_TAG_LENGTH - MAX_TAG_THREAD_LEGTH;
     protected static final int CALL_STACK_INDEX = 4;
     protected static final Pattern ANONYMOUS_CLASS = Pattern.compile("(\\$\\d+)+$");
 
