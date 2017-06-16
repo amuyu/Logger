@@ -6,7 +6,7 @@ TAG를 적어놓긴 햇지만 로그 메시지가 찍히는 위치가 헷갈린�
 # Download
 Dependencies 추가
 ```
-compile 'com.amuyu:logger:1.0.0'
+compile 'com.amuyu:logger:1.0.9'
 ```
 # How to use
 1.Start Logger  
@@ -42,8 +42,8 @@ Logger.d("Activity Created");
 ```
 결과
 ```
-LogLevel/클래스명/Thread: 메소드명(라인) 메시지
-... D/DemoActivity#main: onCreate(25) Activity Created
+LogLevel/클래스명: Thread명#메소드명(라인) 메시지
+... D/DemoActivity: main#onCreate(25) Activity Created
 ```
 
 # 파일 저장
