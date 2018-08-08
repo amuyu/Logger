@@ -13,7 +13,7 @@ buildscript {
 publish {
     userOrg = 'amuyu'
     repoName = 'maven'
-    groupId = 'com.amuyu'
+    groupId = 'com.github.amuyu'
     artifactId = 'logger'
     publishVersion = VERSION_NAME
     desc = 'Simple logger for Android'
