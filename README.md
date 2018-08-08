@@ -49,8 +49,8 @@ LogLevel/클래스명: Thread명#메소드명(라인) 메시지
 # 파일 저장
 파일로 저장하고 싶을 때는 Logger 시작 명령에 `writeFileLog(true)`를 추가합니다
 ```java
-Logger.addLogPrinter(new DefaultLogPrinter(this)
-                        .writeFileLog(true));
+Logger.addLogPrinter(new DefaultLogPrinter(this))
+                        .writeFileLog(true);
 ```
 파일은 `$android_dir/data/[패키지명]/cache` 에 저장됩니다  
 ex) /storage/extSdCard/Android/data/com.amuyu.logger.sample/cache
