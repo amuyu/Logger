@@ -5,6 +5,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.novoda:bintray-release:0.8.1'
     }
 }
 
@@ -16,7 +17,7 @@ ext {
     sourceCompatibilityVersion = JavaVersion.VERSION_1_7
     targetCompatibilityVersion = JavaVersion.VERSION_1_7
 
-    IS_UPLOADING = project.getGradle().startParameter.taskNames.any{it.contains('bintrayUpload')}
+    IS_UPLOADING = project.getGradle().startParameter.taskNames.any{it.contains('generatePomFileForReleasePublication')}
 }
 
 ext.deps = [
@@ -25,6 +26,9 @@ ext.deps = [
         robolectric: 'org.robolectric:robolectric:3.0',
 ]
 
+group = GROUP
+version = VERSION_NAME
+
 allprojects {
     repositories {
         jcenter()
@@ -32,34 +36,25 @@ allprojects {
 
     if (IS_UPLOADING && project.name in ['library']) {
         println project.name
+        println GROUP
+        println VERSION_NAME
         apply plugin: 'maven'
 
         gradle.taskGraph.whenReady { taskGraph ->
             taskGraph.getAllTasks().find {
                 it.path == ":$project.name:generatePomFileForReleasePublication"
             }.doLast {
+                println "delete pom"
                 file("build/publications/release/pom-default.xml").delete()
+                println "pom"
                 pom {
 
-                    withXml {
-                        def dependenciesNode = asNode().appendNode('dependencies')
-
-                        //Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
-                        configurations.implementation.allDependencies.each {
-                            if (it.name == 'unspecified')
-                                return
-                            def dependencyNode = dependenciesNode.appendNode('dependency')
-                            dependencyNode.appendNode('groupId', it.group)
-                            dependencyNode.appendNode('artifactId', it.name)
-                            dependencyNode.appendNode('version', it.version)
-                            dependencyNode.appendNode('scope', 'runtime')
-                        }
-                    }
 
                     project {
                         name "logger"
+                        groupId GROUP
                         artifactId POM_ARTIFACT_ID
-                        packaging 'logger.aar'
+                        packaging 'aar'
                         description POM_DESCRIPTION
                         url POM_URL
                         version VERSION_NAME
