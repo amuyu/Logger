@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    compile project(':logger')
+    compile project(':library')
     compile 'com.jakewharton:butterknife:7.0.1'
 //    compile 'com.amuyu:logger:1.0.0'
 }
