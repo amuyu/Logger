@@ -1,4 +1,7 @@
 [ ![Download](https://api.bintray.com/packages/amuyu/maven/logger/images/download.svg) ](https://bintray.com/amuyu/maven/logger/_latestVersion)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.amuyu/logger/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.amuyu/rsql-parser)
+[![Build Status](https://travis-ci.org/amuyu/Logger.svg?branch=master)](https://travis-ci.org/amuyu/Logger)
+
 # Logger
 안드로이드 로그 메시지를 사용할 때, 항상 TAG를 넣는게 불편하다  
 TAG를 적어놓긴 햇지만 로그 메시지가 찍히는 위치가 헷갈린다  
