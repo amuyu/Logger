@@ -3,14 +3,10 @@ package com.amuyu.logger.sample;
 
 import android.app.Application;
 import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
 
-import com.amuyu.logger.AbstractLogPrinter;
-import com.amuyu.logger.DefaultLogPrinter;
-import com.amuyu.logger.Logger;
-
-import java.io.File;
+import com.github.amuyu.logger.DefaultLogPrinter;
+import com.github.amuyu.logger.Logger;
 
 /**
  * Created by amuyu on 2017. 5. 31..

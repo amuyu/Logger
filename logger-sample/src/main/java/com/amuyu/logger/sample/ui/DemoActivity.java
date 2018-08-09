@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.amuyu.logger.Logger;
+import com.github.amuyu.logger.Logger;
 import com.amuyu.logger.sample.R;
 
 import java.util.Arrays;

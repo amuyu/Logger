@@ -1,4 +1,4 @@
-package com.amuyu.logger;
+package com.github.amuyu.logger;
 
 import android.content.Context;
 import android.util.Log;

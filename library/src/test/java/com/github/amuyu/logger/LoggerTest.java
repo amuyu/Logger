@@ -1,4 +1,4 @@
-package com.amuyu.logger;
+package com.github.amuyu.logger;
 
 import android.content.Context;
 import android.util.Log;
@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-
 import static org.fest.assertions.api.Assertions.assertThat;
 
 
@@ -43,7 +42,7 @@ public class LoggerTest {
         Logger.d(message);
         String threadName = Thread.currentThread().getName();
         assertLog()
-                .hasDebugMessage("LoggerTest", threadName + "#debugTagAndMessage(43) "+message);
+                .hasDebugMessage("LoggerTest", threadName + "#debugTagAndMessage(42) "+message);
     }
 
     @Test public void dontAddLogPrinter() {
@@ -53,7 +52,7 @@ public class LoggerTest {
                 .hasNoMoreMessages();
     }
 
-    @Test public void writeToFile() {
+    @Test public void writeToFile() throws IOException {
         Context context = RuntimeEnvironment.application;
         Logger.addLogPrinter(new DefaultLogPrinter(context).writeFileLog(true));
         Logger.d("Hello, world!");
@@ -62,30 +61,32 @@ public class LoggerTest {
         String ext = ".log";
         File logFile = new File(cachePath, dateFormat.format(new Date()) + ext);
         if(logFile.exists()) {
-
+            InputStream in = null;
+            BufferedReader reader = null;
             try {
-                InputStream in = new FileInputStream(logFile);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                in = new FileInputStream(logFile);
+                reader = new BufferedReader(new InputStreamReader(in));
                 String line = null;
                 StringBuilder builder = new StringBuilder();
                 while((line = reader.readLine()) != null) {
                     builder.append(line);
                 }
                 String threadName = Thread.currentThread().getName();
-                String expected = "LoggerTest: "+threadName+"#writeToFile(59) Hello, world!";
+                String expected = "LoggerTest: "+threadName+"#writeToFile(58) Hello, world!";
                 String message = builder.toString();
                 message = message.substring(message.length()-expected.length(), message.length());
                 assertThat(message).isEqualTo(expected);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } finally {
+                if (reader != null) reader.close();
+                if (in != null) in.close();
             }
 
         }
     }
 
-    @Test public void writeToCrashFile() {
+    @Test public void writeToCrashFile() throws IOException {
         String fileName = "crash";
         Context context = RuntimeEnvironment.application;
         Logger.addLogPrinter(new DefaultLogPrinter(context) {
@@ -101,23 +102,26 @@ public class LoggerTest {
         String ext = '-'+fileName+".log";
         File logFile = new File(cachePath, dateFormat.format(new Date()) + ext);
         if(logFile.exists()) {
+            InputStream in = null;
+            BufferedReader reader = null;
             try {
-                InputStream in = new FileInputStream(logFile);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                in = new FileInputStream(logFile);
+                reader = new BufferedReader(new InputStreamReader(in));
                 String line = null;
                 StringBuilder builder = new StringBuilder();
                 while((line = reader.readLine()) != null) {
                     builder.append(line);
                 }
                 String threadName = Thread.currentThread().getName();
-                String expected = "LoggerTest: "+threadName+"#writeToCrashFile(98) Hello, world!";
+                String expected = "LoggerTest: "+threadName+"#writeToCrashFile(99) Hello, world!";
                 String message = builder.toString();
                 message = message.substring(message.length()-expected.length(), message.length());
                 assertThat(message).isEqualTo(expected);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } finally {
+                if (reader != null) reader.close();
+                if (in != null) in.close();
             }
         } else {
 //            fail("not exists file");

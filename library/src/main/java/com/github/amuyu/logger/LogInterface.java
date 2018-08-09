@@ -1,4 +1,4 @@
-package com.amuyu.logger;
+package com.github.amuyu.logger;
 
 /**
  * Created by amuyu on 2017. 5. 30..
