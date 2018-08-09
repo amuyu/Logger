@@ -1,2 +1,2 @@
 #!/bin/bash
-./gradlew clean build bintrayUpload -PbintrayUser=$1 -PbintrayKey=$2 -PdryRun=false
+./gradlew clean build generatePomFileForReleasePublication bintrayUpload -PbintrayUser=$1 -PbintrayKey=$2 -PdryRun=false
