@@ -1,5 +1,6 @@
 [ ![Download](https://api.bintray.com/packages/amuyu/maven/logger/images/download.svg) ](https://bintray.com/amuyu/maven/logger/_latestVersion)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.amuyu/logger/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.amuyu/rsql-parser)
+[![Javadocs](http://www.javadoc.io/badge/com.github.amuyu/logger.svg)](http://www.javadoc.io/doc/com.github.amuyu/logger)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.amuyu/logger/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.amuyu/rsql-parser)
 [![Build Status](https://travis-ci.org/amuyu/Logger.svg?branch=master)](https://travis-ci.org/amuyu/Logger)
 
 # Logger
