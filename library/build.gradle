@@ -1,13 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-}
-
 publish {
     userOrg = 'amuyu'
     repoName = 'maven'
@@ -22,36 +15,14 @@ publish {
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName VERSION_NAME
-        archivesBaseName = "logger"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-//    libraryVariants.all { variant ->
-//        variant.outputs.each { output ->
-//            def outputFile = output.outputFile
-//            if (outputFile != null && outputFile.name.endsWith('.aar')) {
-//                def fileName = "${archivesBaseName}-${VERSION_NAME}.aar"
-//                output.outputFile = new File(outputFile.parent, fileName)
-//            }
-//        }
-//    }
 }
 
 dependencies {
-    testCompile deps.junit
-    testCompile deps.robolectric
-    testCompile deps.festassert
+    testImplementation deps.junit
+    testImplementation deps.robolectric
+    testImplementation deps.festassert
 }

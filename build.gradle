@@ -10,13 +10,19 @@ buildscript {
     }
 }
 
+subprojects {
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+    }
+}
+
 ext {
     minSdkVersion = 15
-    targetSdkVersion = 25
-    compileSdkVersion = 25
-    buildToolsVersion = '25.0.1'
-    sourceCompatibilityVersion = JavaVersion.VERSION_1_7
-    targetCompatibilityVersion = JavaVersion.VERSION_1_7
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.3'
 
     IS_UPLOADING = project.getGradle().startParameter.taskNames.any{it.contains('generatePomFileForReleasePublication')}
 }
