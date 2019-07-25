@@ -17,6 +17,7 @@ import butterknife.OnClick;
 public class DemoActivity extends Activity {
 
   private boolean isRun = false;
+  private Thread thread;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -38,22 +39,22 @@ public class DemoActivity extends Activity {
   @OnClick({ R.id.hello, R.id.hey, R.id.hi })
   public void greetingClicked(Button button) {
     Logger.i("A button with ID %s was clicked to say '%s'.", button.getId(), button.getText());
-    if(!isRun) thread.start();
+    if(thread == null || !isRun) {
+      thread = new Thread(runnable);
+      thread.start();
+    }
     else thread.interrupt();
   }
 
-  Thread thread = new Thread(new Runnable() {
-    @Override
-    public void run() {
-      isRun = true;
-      Logger.d("thread test");
-      try {
-        Thread.sleep(10000);
-      } catch (InterruptedException e) {
-        Logger.d("interrupted",e);
-      }
-      Logger.d("thread end");
-      isRun = false;
+  Runnable runnable = () -> {
+    isRun = true;
+    Logger.d("thread test");
+    try {
+      Thread.sleep(10000);
+    } catch (InterruptedException e) {
+      Logger.e("interrupted",e);
     }
-  });
+    Logger.d("thread end");
+    isRun = false;
+  };
 }
