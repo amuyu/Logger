@@ -8,8 +8,6 @@ before_install:
   - chmod +x .buildscript/maven_push.sh
 after_success:
   - ls -al
-script:
-  - ./gradlew clean assemble test --debug
 env:
 notifications:
   email: false
