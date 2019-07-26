@@ -7,7 +7,7 @@ before_install:
   - chmod +x gradlew
   - chmod +x .buildscript/maven_push.sh
 after_success:
-  - ls -al
+  - ./gradlew assemble --debug
 env:
 notifications:
   email: false
