@@ -10,11 +10,12 @@ TAG를 적어놓긴 햇지만 로그 메시지가 찍히는 위치가 헷갈린�
 # Download
 Dependencies 추가
 ```
-compile 'com.amuyu:logger:1.0.9'
+implementation 'com.amuyu:logger:1.1.6'
 ```
 # How to use
-1.Start Logger  
+## Start Logger  
 앱 시작 시, Logger를 생성하기 위해 다음을 호출합니다.
+
 ```java
 public class App extends Application {
     @Override
@@ -25,14 +26,16 @@ public class App extends Application {
     }
 ```
 
-2.Log message  
+## Log message  
 Logger.d("") 메시지를 호출해서 메시지를 남깁니다
+
 ```java
 Logger.d("log message");
 ```
 
-3.Log level  
+## Log level  
 android.Log에서 사용하는 Log Level과 동일합니다
+
 ```java
 Logger.v() Logger.d() Logger.e() Logger.i() ...
 ```
