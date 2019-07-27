@@ -36,8 +36,13 @@ public class LoggerTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void nullLogPrinter() {
+    public void nullAddLogPrinter() {
         Logger.addLogPrinter(null);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void nullRemoveLogPrinter() {
+        Logger.removeLogPrint(null);
     }
 
     @Test public void debugTagAndMessage() {
