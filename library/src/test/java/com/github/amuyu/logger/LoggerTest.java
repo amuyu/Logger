@@ -35,6 +35,11 @@ public class LoggerTest {
         Logger.clearLogPrint();
     }
 
+    @Test(expected = NullPointerException.class)
+    public void nullLogPrinter() {
+        Logger.addLogPrinter(null);
+    }
+
     @Test public void debugTagAndMessage() {
         Context context = RuntimeEnvironment.application;
         Logger.addLogPrinter(new DefaultLogPrinter(context));
