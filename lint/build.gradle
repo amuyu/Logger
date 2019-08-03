@@ -1,0 +1,22 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+
+dependencies {
+    compileOnly deps.lint.api
+    compileOnly deps.lint.checks
+    testImplementation deps.lint.core
+    testImplementation deps.lint.tests
+}
+
+jar {
+    manifest {
+        attributes('Lint-Registry-v2': 'com.github.amuyu.logger.lint.LoggerIssueRegistry')
+    }
+}

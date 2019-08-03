@@ -1,1 +1,1 @@
-include ':library', ':logger-sample'
+include ':library', ':logger-sample', ':lint'

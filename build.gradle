@@ -31,6 +31,12 @@ ext.deps = [
         junit      : 'junit:junit:4.12',
         festassert : 'org.easytesting:fest-assert-core:2.0M10',
         robolectric: 'org.robolectric:robolectric:3.0',
+        lint: [
+                'core': "com.android.tools.lint:lint:26.4.0",
+                'api': "com.android.tools.lint:lint-api:26.4.0",
+                'checks': "com.android.tools.lint:lint-checks:26.4.0",
+                'tests': "com.android.tools.lint:lint-tests:26.4.0",
+        ],
 ]
 
 group = GROUP
