@@ -2,6 +2,7 @@ package com.amuyu.logger.sample.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.github.amuyu.logger.Logger;
@@ -23,6 +24,8 @@ public class DemoActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.demo_activity);
     ButterKnife.bind(this);
+    Log.d("TAG", "lint test");
+
     Logger.d("");
     Logger.d("Activity Created");
     Logger.e("error test");
