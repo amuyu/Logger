@@ -25,4 +25,6 @@ dependencies {
     testImplementation deps.junit
     testImplementation deps.robolectric
     testImplementation deps.festassert
+
+    lintPublish project(':lint')
 }
