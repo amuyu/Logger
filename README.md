@@ -10,7 +10,7 @@ TAG를 적어놓긴 햇지만 로그 메시지가 찍히는 위치가 헷갈린�
 # Download
 Dependencies 추가
 ```
-implementation 'com.amuyu:logger:1.1.6'
+implementation 'com.github.amuyu:logger:1.1.6'
 ```
 # How to use
 ## Start Logger  
